@@ -1,0 +1,76 @@
+{
+  "name": "mermaid-panel",
+  "displayName": "Mermaid Panel",
+  "description": "Paste a Mermaid diagram and see it rendered. Edit the text or the diagram; each updates the other.",
+  "version": "0.1.0",
+  "publisher": "mtorres11",
+  "license": "MIT",
+  "author": {
+    "name": "Marco Torres C",
+    "url": "https://github.com/mtorres11"
+  },
+  "homepage": "https://github.com/mtorres11/mermaid-panel#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtorres11/mermaid-panel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mtorres11/mermaid-panel/issues"
+  },
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "flowchart",
+    "preview",
+    "editor",
+    "claude"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1f6feb",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "qna": false,
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onUri"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "mermaidPanel.open",
+        "title": "Open",
+        "category": "Mermaid Panel",
+        "icon": "$(type-hierarchy)"
+      }
+    ]
+  },
+  "scripts": {
+    "bundle": "node -e \"require('fs').copyFileSync(require.resolve('mermaid/dist/mermaid.min.js'),'media/mermaid.min.js')\"",
+    "compile": "npm run bundle && tsc -p ./",
+    "watch": "npm run bundle && tsc -watch -p ./",
+    "test": "node --test \"test/*.test.js\"",
+    "package": "npm run compile && vsce package --no-dependencies -o mermaid-panel.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/vscode": "~1.95.0",
+    "@vscode/vsce": "^4.1.1",
+    "mermaid": "^11.17.2",
+    "typescript": "^5.9.3"
+  }
+}
