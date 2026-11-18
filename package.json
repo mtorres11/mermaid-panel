@@ -70,7 +70,7 @@
     "@types/node": "^20.19.43",
     "@types/vscode": "~1.95.0",
     "@vscode/vsce": "^4.1.1",
-    "mermaid": "^11.17.2",
+    "mermaid": "^12.3.0",
     "typescript": "^5.9.3"
   }
 }
